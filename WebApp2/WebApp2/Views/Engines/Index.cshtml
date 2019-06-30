@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApp2.Models.Engine>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="content">
+    <h1>Index</h1>
+
+    <p>
+        <a class="btn btn-primary" onclick="getPagewithController('Engines', 'Create')">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a onclick="getPage('Edit', @item.Id)" class="btn btn-outline-info">Edit</a> |
+                        <a onclick="getPage('Details', @item.Id)" class="btn btn-outline-info">Details</a> |
+                        <a onclick="getPage('Delete', @item.Id)" class="btn btn-outline-info">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
